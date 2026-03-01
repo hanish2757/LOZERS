@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LOZERS | Enter The Arena</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <title>LOZERS | Showcase Your Talent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         :root {
             --bg: #050507;
@@ -29,6 +31,7 @@
             --pink: #ec4899;
             --pink-glow: rgba(236, 72, 153, 0.4);
             --mobile-padding: 1rem;
+            --primary: #ff4d00;
         }
 
         * {
@@ -106,13 +109,29 @@
         }
 
         @keyframes loaderPulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(0.98); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(0.98);
+                opacity: 0.8;
+            }
         }
 
         @keyframes glowPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
         }
 
         .loader-bar {
@@ -134,8 +153,13 @@
         }
 
         @keyframes loaderProgress {
-            0% { width: 0%; }
-            100% { width: 100%; }
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
         }
 
         .loader-text {
@@ -147,8 +171,15 @@
         }
 
         @keyframes textFade {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* ===== SCROLL PROGRESS ===== */
@@ -217,10 +248,23 @@
         }
 
         @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.1); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(20px, 30px) scale(1.05); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(20px, 30px) scale(1.05);
+            }
         }
 
         .particles {
@@ -245,10 +289,23 @@
         }
 
         @keyframes particleFloat {
-            0% { opacity: 0; transform: translateY(100vh) scale(0); }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { opacity: 0; transform: translateY(-100px) scale(1); }
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(1);
+            }
         }
 
         /* ===== NAVIGATION ===== */
@@ -395,10 +452,11 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding: 6rem var(--mobile-padding) 4rem;
-            gap: 2rem;
+            padding: 5rem var(--mobile-padding) 5rem;
+            gap: 3rem;
             position: relative;
             overflow: hidden;
+            justify-content: center;
         }
 
         .hero-left {
@@ -407,9 +465,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 var(--mobile-padding);
+            padding: 0;
             z-index: 2;
-            order: 2;
+            order: 1;
         }
 
         .hero-right {
@@ -417,8 +475,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            order: 1;
-            padding: 1rem;
+            order: 2;
+            padding: 0;
             perspective: 1000px;
         }
 
@@ -446,10 +504,10 @@
         }
 
         .hero-title {
-            font-size: clamp(2.8rem, 12vw, 5rem);
+            font-size: clamp(2.5rem, 11vw, 5rem);
             font-weight: 900;
             line-height: 1.05;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             letter-spacing: -0.03em;
         }
 
@@ -495,12 +553,12 @@
         }
 
         .hero-desc {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--gray-light);
             max-width: 100%;
-            line-height: 1.9;
+            line-height: 1.8;
             margin-bottom: 2rem;
-            padding: 0 0.5rem;
+            padding: 0;
         }
 
         .hero-buttons {
@@ -544,7 +602,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
@@ -553,8 +611,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .cta-btn:hover {
@@ -600,8 +665,8 @@
             border-radius: 28px;
             position: relative;
             overflow: hidden;
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.6), 
+            box-shadow:
+                0 30px 60px rgba(0, 0, 0, 0.6),
                 0 0 80px rgba(255, 77, 0, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             animation: mobileFloat 6s ease-in-out infinite;
@@ -619,8 +684,15 @@
         }
 
         @keyframes mobileFloat {
-            0%, 100% { transform: translateY(0) rotateY(-3deg) rotateX(2deg); }
-            50% { transform: translateY(-15px) rotateY(-1deg) rotateX(4deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotateY(-3deg) rotateX(2deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateY(-1deg) rotateX(4deg);
+            }
         }
 
         .card-photo-carousel {
@@ -678,13 +750,18 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
             animation: shimmer 3s infinite;
         }
 
         @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%); }
-            100% { transform: translateX(100%) translateY(100%); }
+            0% {
+                transform: translateX(-100%) translateY(-100%);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%);
+            }
         }
 
         .carousel-overlay {
@@ -738,8 +815,15 @@
         }
 
         @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 5px 25px rgba(255, 77, 0, 0.4); }
-            50% { box-shadow: 0 5px 35px rgba(255, 77, 0, 0.6); }
+
+            0%,
+            100% {
+                box-shadow: 0 5px 25px rgba(255, 77, 0, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 5px 35px rgba(255, 77, 0, 0.6);
+            }
         }
 
         .card-content {
@@ -835,13 +919,27 @@
         }
 
         @keyframes dotPulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.7;
+            }
         }
 
         @keyframes marqueeScroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         /* ===== FEATURES SECTION ===== */
@@ -1025,62 +1123,56 @@
         }
 
         .timeline {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             position: relative;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent), var(--purple), var(--blue));
-        }
-
         .timeline-item {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            position: relative;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .timeline-dot {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--accent), var(--purple));
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 0.9rem;
             flex-shrink: 0;
-            box-shadow: 0 5px 20px rgba(255, 77, 0, 0.3);
-            z-index: 1;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.75rem;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(255, 77, 0, 0.4);
+            margin-top: 0.25rem;
         }
 
         .timeline-content {
             flex: 1;
-            padding: 1.25rem;
-            background: linear-gradient(165deg, rgba(25, 25, 35, 0.9), rgba(10, 10, 15, 0.95));
-            border: 1px solid rgba(255, 77, 0, 0.15);
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(165deg, rgba(25, 25, 35, 0.95), rgba(10, 10, 15, 0.98));
+            border: 1px solid rgba(255, 77, 0, 0.18);
+            border-left: 3px solid var(--accent);
             border-radius: 16px;
             backdrop-filter: blur(10px);
         }
 
         .timeline-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--white);
         }
 
         .timeline-desc {
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             color: var(--gray-light);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* ===== APPLY SECTION ===== */
@@ -1158,28 +1250,87 @@
             border-radius: 2px;
         }
 
-        .form-card[data-card="1"] { z-index: 4; transform: translateY(0) scale(1); opacity: 1; }
-        .form-card[data-card="2"] { z-index: 3; transform: translateY(15px) scale(0.97); opacity: 0.7; filter: brightness(0.8); pointer-events: none; }
-        .form-card[data-card="3"] { z-index: 2; transform: translateY(30px) scale(0.94); opacity: 0.4; filter: brightness(0.6); pointer-events: none; }
-        .form-card[data-card="4"] { z-index: 1; transform: translateY(45px) scale(0.91); opacity: 0; filter: brightness(0.4); pointer-events: none; }
+        .form-card[data-card="1"] {
+            z-index: 4;
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
 
-        .form-card.active { z-index: 4 !important; transform: translateY(0) scale(1) !important; opacity: 1 !important; filter: brightness(1) !important; pointer-events: all !important; }
-        .form-card.behind-1 { z-index: 3 !important; transform: translateY(15px) scale(0.97) !important; opacity: 0.7 !important; filter: brightness(0.8) !important; pointer-events: none !important; }
-        .form-card.behind-2 { z-index: 2 !important; transform: translateY(30px) scale(0.94) !important; opacity: 0.4 !important; filter: brightness(0.6) !important; pointer-events: none !important; }
-        .form-card.behind-3 { z-index: 1 !important; transform: translateY(45px) scale(0.91) !important; opacity: 0 !important; filter: brightness(0.4) !important; pointer-events: none !important; }
-        .form-card.gone { z-index: 5 !important; transform: translateY(-120%) rotateX(25deg) !important; opacity: 0 !important; pointer-events: none !important; }
+        .form-card[data-card="2"] {
+            z-index: 3;
+            transform: translateY(15px) scale(0.97);
+            opacity: 0.7;
+            filter: brightness(0.8);
+            pointer-events: none;
+        }
+
+        .form-card[data-card="3"] {
+            z-index: 2;
+            transform: translateY(30px) scale(0.94);
+            opacity: 0.4;
+            filter: brightness(0.6);
+            pointer-events: none;
+        }
+
+        .form-card[data-card="4"] {
+            z-index: 1;
+            transform: translateY(45px) scale(0.91);
+            opacity: 0;
+            filter: brightness(0.4);
+            pointer-events: none;
+        }
+
+        .form-card.active {
+            z-index: 4 !important;
+            transform: translateY(0) scale(1) !important;
+            opacity: 1 !important;
+            filter: brightness(1) !important;
+            pointer-events: all !important;
+        }
+
+        .form-card.behind-1 {
+            z-index: 3 !important;
+            transform: translateY(15px) scale(0.97) !important;
+            opacity: 0.7 !important;
+            filter: brightness(0.8) !important;
+            pointer-events: none !important;
+        }
+
+        .form-card.behind-2 {
+            z-index: 2 !important;
+            transform: translateY(30px) scale(0.94) !important;
+            opacity: 0.4 !important;
+            filter: brightness(0.6) !important;
+            pointer-events: none !important;
+        }
+
+        .form-card.behind-3 {
+            z-index: 1 !important;
+            transform: translateY(45px) scale(0.91) !important;
+            opacity: 0 !important;
+            filter: brightness(0.4) !important;
+            pointer-events: none !important;
+        }
+
+        .form-card.gone {
+            z-index: 5 !important;
+            transform: translateY(-120%) rotateX(25deg) !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: sticky;
-            top: 0;
-            background: inherit;
-            z-index: 10;
+            top: -1.5rem;
+            background: rgb(18, 18, 26);
+            z-index: 20;
+            margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 77, 0, 0.18);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.45);
         }
 
         .card-step {
@@ -1213,6 +1364,9 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.3;
+            position: relative;
+            z-index: 10;
+            padding-top: 0.5rem;
         }
 
         .form-group {
@@ -1320,6 +1474,16 @@
             box-shadow: 0 8px 30px rgba(255, 77, 0, 0.4);
         }
 
+        .btn-back-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-back-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
         .btn-pay {
             background: linear-gradient(135deg, var(--success), #00cc6a);
             border-color: transparent;
@@ -1395,8 +1559,15 @@
         }
 
         @keyframes successAppear {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .success-icon {
@@ -1413,9 +1584,17 @@
         }
 
         @keyframes successPop {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .success-icon svg {
@@ -1477,7 +1656,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .loading-text {
@@ -1552,6 +1733,48 @@
 
         .contact-link:hover {
             color: var(--accent);
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            margin: 3rem auto 1rem;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .qr-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .qr-desc {
+            font-size: 0.8rem;
+            color: var(--gray-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .qr-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px;
+            display: inline-block;
+            box-shadow: 0 8px 32px rgba(255, 77, 0, 0.25), 0 0 0 3px rgba(255, 77, 0, 0.3);
+        }
+
+        .qr-box canvas, .qr-box img {
+            display: block;
+        }
+
+        .qr-url {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--gray-light);
+            letter-spacing: 0.05em;
         }
 
         .social-section {
@@ -1662,6 +1885,437 @@
             letter-spacing: 0.1em;
         }
 
+        /* ===== ABOUT THE SHOW SECTION ===== */
+        .about-section {
+            padding: 5rem var(--mobile-padding) 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-intro {
+            max-width: 720px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .about-intro .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(255,77,0,0.1);
+            border: 1px solid rgba(255,77,0,0.3);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-intro .section-title {
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, var(--white), var(--gray-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-intro p {
+            font-size: 1rem;
+            color: var(--gray-light);
+            line-height: 1.9;
+        }
+
+        .about-intro p strong {
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+        }
+
+        .concept-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .concept-card.accent-orange::before { background: linear-gradient(90deg, var(--accent), var(--accent-secondary)); }
+        .concept-card.accent-purple::before { background: linear-gradient(90deg, var(--purple), var(--blue)); }
+        .concept-card.accent-green::before  { background: linear-gradient(90deg, var(--success), #00cc6a); }
+        .concept-card.accent-pink::before   { background: linear-gradient(90deg, var(--pink), var(--purple)); }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.12);
+        }
+
+        .concept-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .concept-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .concept-card p {
+            font-size: 0.88rem;
+            color: var(--gray-light);
+            line-height: 1.8;
+        }
+
+        /* ===== EPISODE FORMAT ===== */
+        .episode-section {
+            padding: 4rem var(--mobile-padding);
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, transparent, rgba(255,77,0,0.03), transparent);
+        }
+
+        .episode-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .episode-header .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--purple);
+            background: rgba(139,92,246,0.1);
+            border: 1px solid rgba(139,92,246,0.3);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .episode-header h2 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--white), var(--gray-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+        }
+
+        .episode-header p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+        }
+
+        .episodes-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .episode-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 1.4rem 1.5rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .episode-item:hover {
+            border-color: rgba(255,77,0,0.25);
+            background: rgba(255,77,0,0.04);
+            transform: translateX(6px);
+        }
+
+        .episode-num {
+            min-width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .episode-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.02em;
+        }
+
+        .episode-info p {
+            font-size: 0.82rem;
+            color: var(--gray-light);
+            line-height: 1.7;
+        }
+
+        .episode-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            margin-top: 0.5rem;
+        }
+
+        .tag-intro    { background: rgba(59,130,246,0.15);  color: var(--blue); }
+        .tag-heat     { background: rgba(255,77,0,0.15);    color: var(--accent); }
+        .tag-battle   { background: rgba(139,92,246,0.15);  color: var(--purple); }
+        .tag-final    { background: rgba(0,255,136,0.15);   color: var(--success); }
+        .tag-wild     { background: rgba(236,72,153,0.15);  color: var(--pink); }
+
+        /* ===== TALENT TYPES SECTION ===== */
+        .talent-section {
+            padding: 4rem var(--mobile-padding);
+            position: relative;
+            z-index: 1;
+        }
+
+        .talent-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .talent-header .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--success);
+            background: rgba(0,255,136,0.1);
+            border: 1px solid rgba(0,255,136,0.25);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .talent-header h2 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--white), var(--gray-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+        }
+
+        .talent-header p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+        }
+
+        .talent-marquee-wrap {
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .talent-marquee-track {
+            display: flex;
+            gap: 1rem;
+            animation: talentScroll 20s linear infinite;
+            width: max-content;
+        }
+
+        .talent-marquee-track.reverse {
+            animation: talentScrollReverse 22s linear infinite;
+        }
+
+        @keyframes talentScroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+
+        @keyframes talentScrollReverse {
+            from { transform: translateX(-50%); }
+            to   { transform: translateX(0); }
+        }
+
+        .talent-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--bg-card);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--gray-light);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            letter-spacing: 0.03em;
+        }
+
+        .talent-chip span { font-size: 1.1rem; }
+
+        .talent-cta {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .talent-cta p {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .talent-cta small {
+            font-size: 0.82rem;
+            color: var(--gray-light);
+        }
+
+        /* ===== PRIZE SECTION ===== */
+        .prize-section {
+            padding: 5rem var(--mobile-padding);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .prize-box {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,77,0,0.2);
+            border-radius: 28px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .prize-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top, rgba(255,77,0,0.08), transparent 65%);
+            pointer-events: none;
+        }
+
+        .prize-glow-ring {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            box-shadow: 0 0 60px rgba(255,77,0,0.4), 0 0 120px rgba(255,77,0,0.15);
+            animation: prizeGlow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes prizeGlow {
+            0%, 100% { box-shadow: 0 0 60px rgba(255,77,0,0.4), 0 0 120px rgba(255,77,0,0.15); }
+            50%       { box-shadow: 0 0 80px rgba(255,77,0,0.6), 0 0 160px rgba(255,77,0,0.25); }
+        }
+
+        .prize-tbd {
+            font-size: clamp(2.8rem, 10vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            animation: textGlow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { filter: brightness(1); }
+            50%       { filter: brightness(1.25); }
+        }
+
+        .prize-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .prize-desc {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+            line-height: 1.8;
+            max-width: 480px;
+            margin: 0 auto 2rem;
+        }
+
+        .prize-desc strong {
+            color: var(--white);
+        }
+
+        .prize-perks {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .prize-perk {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray-light);
+            background: rgba(255,255,255,0.03);
+        }
+
         /* ===== ANIMATIONS ===== */
         .fade-in {
             opacity: 0;
@@ -1676,6 +2330,10 @@
 
         /* ===== RESPONSIVE ===== */
         @media (min-width: 600px) {
+            .concept-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .hero {
                 padding: 5rem 2rem 4rem;
             }
@@ -1704,6 +2362,23 @@
         }
 
         @media (min-width: 769px) {
+            .about-section,
+            .episode-section,
+            .talent-section,
+            .prize-section {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+
+            .concept-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .prize-box {
+                padding: 4rem 3rem;
+            }
+
             .desktop-nav {
                 display: flex;
             }
@@ -1744,7 +2419,8 @@
                 width: auto;
             }
 
-            .cta-btn, .cta-btn-secondary {
+            .cta-btn,
+            .cta-btn-secondary {
                 width: auto;
                 min-width: 200px;
             }
@@ -1772,32 +2448,18 @@
                 transform: translateX(-50%);
             }
 
+            .timeline {
+                max-width: 700px;
+            }
+
             .timeline-item {
-                justify-content: center;
-            }
-
-            .timeline-item:nth-child(odd) {
-                flex-direction: row-reverse;
-                text-align: right;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-content {
-                margin-right: 2rem;
-                margin-left: 0;
-            }
-
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 2rem;
+                gap: 1.5rem;
             }
 
             .timeline-dot {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .timeline-content {
-                max-width: 350px;
+                width: 52px;
+                height: 52px;
+                font-size: 0.9rem;
             }
 
             .apply-section {
@@ -1817,6 +2479,18 @@
         }
 
         @media (min-width: 1025px) {
+            .concept-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .about-section,
+            .episode-section,
+            .talent-section,
+            .prize-section {
+                padding-left: 5rem;
+                padding-right: 5rem;
+            }
+
             .hero {
                 padding: 0 6rem;
                 gap: 5rem;
@@ -1869,7 +2543,7 @@
 </head>
 
 <body>
-    <!-- Scroll Progress -->
+    <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Page Loader -->
@@ -1895,12 +2569,12 @@
         <div class="nav-logo">LOZERS</div>
         <div class="nav-links">
             <a href="#hero" class="nav-link">Home</a>
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#stats" class="nav-link">Stats</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#episodes" class="nav-link">Episodes</a>
+            <a href="#prize" class="nav-link">Prize</a>
             <a href="#timeline" class="nav-link">Timeline</a>
-            <a href="#apply" class="nav-link">Apply</a>
             <a href="#contact" class="nav-link">Contact</a>
-            <a href="#apply" class="nav-cta">Enter Arena</a>
+            <a href="#apply" class="nav-cta">Apply Now</a>
         </div>
     </nav>
 
@@ -1912,11 +2586,23 @@
             </svg>
             <span>Home</span>
         </a>
-        <a href="#features" class="mobile-nav-item" onclick="setActiveNav(this)">
+        <a href="#about" class="mobile-nav-item" onclick="setActiveNav(this)">
             <svg class="mobile-nav-icon" viewBox="0 0 24 24">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                <path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
             </svg>
-            <span>Features</span>
+            <span>About</span>
+        </a>
+        <a href="#episodes" class="mobile-nav-item" onclick="setActiveNav(this)">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+            </svg>
+            <span>Episodes</span>
+        </a>
+        <a href="#prize" class="mobile-nav-item" onclick="setActiveNav(this)">
+            <svg class="mobile-nav-icon" viewBox="0 0 24 24">
+                <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+            </svg>
+            <span>Prize</span>
         </a>
         <a href="#apply" class="mobile-nav-item" onclick="setActiveNav(this)">
             <svg class="mobile-nav-icon" viewBox="0 0 24 24">
@@ -1929,20 +2615,19 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-left">
-            <div class="hero-label">Competition Reality Show</div>
+            <div class="hero-label">India's Premier Talent Show</div>
             <h1 class="hero-title">
-                <span class="line"><span class="word">PROVE</span></span>
-                <span class="line"><span class="word">YOU'RE</span></span>
-                <span class="line"><span class="word">NOT ONE.</span></span>
+                <span class="line"><span class="word">SHOWCASE</span></span>
+                <span class="line"><span class="word">YOUR</span></span>
+                <span class="line"><span class="word">TALENT</span></span>
             </h1>
             <p class="hero-desc">
-                An arena where excuses die and winners emerge.
-                No script. No safety net. Just you against everyone else.
-                Are you ready to prove yourself?
+                Every episode brings new contestants — they showcase their talent — and the winner is decided on the spot. No waiting.
+                Anyone can apply. <strong style="-webkit-text-fill-color:var(--accent);color:var(--accent);">Any talent counts</strong> — this is your stage.
             </p>
             <div class="hero-buttons">
                 <a href="#apply" class="cta-btn" onclick="scrollToApply()">
-                    Enter The Arena
+                    Apply with Your Talent
                     <span>→</span>
                 </a>
                 <a href="#features" class="cta-btn-secondary">
@@ -1955,13 +2640,16 @@
                 <div class="card-photo-carousel">
                     <div class="carousel-container" id="carouselContainer">
                         <div class="carousel-slide active">
-                            <div class="carousel-placeholder" style="background: linear-gradient(135deg, #1a0a2e, #0f0f1e);">LOZERS</div>
+                            <div class="carousel-placeholder"
+                                style="background: linear-gradient(135deg, #1a0a2e, #0f0f1e);">LOZERS</div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="carousel-placeholder" style="background: linear-gradient(135deg, #2d1b69, #0f0f1e);">SEASON<br>01</div>
+                            <div class="carousel-placeholder"
+                                style="background: linear-gradient(135deg, #2d1b69, #0f0f1e);">SEASON<br>01</div>
                         </div>
                         <div class="carousel-slide">
-                            <div class="carousel-placeholder" style="background: linear-gradient(135deg, #1e3c72, #0f0f1e);">APPLY<br>NOW</div>
+                            <div class="carousel-placeholder"
+                                style="background: linear-gradient(135deg, #1e3c72, #0f0f1e);">APPLY<br>NOW</div>
                         </div>
                     </div>
                     <div class="carousel-overlay"></div>
@@ -1970,15 +2658,15 @@
                 <div class="card-badge">SEASON 01</div>
                 <div class="card-content">
                     <div class="card-title">Applications Open</div>
-                    <div class="card-desc">Join the most intense competition. Only the strongest survive.</div>
+                    <div class="card-desc">Perform. Get judged. Win the same episode. The rest? LOZERS.</div>
                     <div class="card-stats">
                         <div class="card-stat">
                             <div class="card-stat-value" id="applicantCount">0</div>
                             <div class="card-stat-label">Applicants</div>
                         </div>
                         <div class="card-stat">
-                            <div class="card-stat-value">24</div>
-                            <div class="card-stat-label">Contestants</div>
+                            <div class="card-stat-value">1</div>
+                            <div class="card-stat-label">Winner/Episode</div>
                         </div>
                     </div>
                 </div>
@@ -1989,49 +2677,225 @@
     <!-- Marquee Section -->
     <section class="marquee-section" id="marquee">
         <div class="marquee">
-            <div class="marquee-item">NO EXCUSES <span class="marquee-dot"></span> PROVE YOURSELF <span class="marquee-dot"></span> WIN OR GO HOME <span class="marquee-dot"></span> NO LOZERS ALLOWED <span class="marquee-dot"></span></div>
-            <div class="marquee-item">NO EXCUSES <span class="marquee-dot"></span> PROVE YOURSELF <span class="marquee-dot"></span> WIN OR GO HOME <span class="marquee-dot"></span> NO LOZERS ALLOWED <span class="marquee-dot"></span></div>
+            <div class="marquee-item">ANY TALENT WELCOME <span class="marquee-dot"></span> PROVE YOURSELF <span class="marquee-dot"></span> WIN OR GO HOME <span class="marquee-dot"></span> INDIA'S MOST UNFILTERED SHOW <span class="marquee-dot"></span> ANYONE CAN APPLY <span class="marquee-dot"></span> ONLY ONE WINNER <span class="marquee-dot"></span></div>
+            <div class="marquee-item">ANY TALENT WELCOME <span class="marquee-dot"></span> PROVE YOURSELF <span class="marquee-dot"></span> WIN OR GO HOME <span class="marquee-dot"></span> INDIA'S MOST UNFILTERED SHOW <span class="marquee-dot"></span> ANYONE CAN APPLY <span class="marquee-dot"></span> ONLY ONE WINNER <span class="marquee-dot"></span></div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features-section" id="features">
         <div class="section-header fade-in">
-            <div class="section-label">Why Join Us</div>
-            <h2 class="section-title">What Makes LOZERS Different</h2>
-            <p class="section-subtitle">Experience the most intense competition reality show ever created</p>
+            <div class="section-label">Why Apply?</div>
+            <h2 class="section-title">Why LOZERS Is Different</h2>
+            <p class="section-subtitle">A show that is exactly how it should be — real, raw, and result-driven</p>
         </div>
         <div class="features-grid">
             <div class="feature-card fade-in">
-                <div class="feature-icon">🔥</div>
-                <h3 class="feature-title">Raw Competition</h3>
-                <p class="feature-desc">No scripts, no fake drama. Just pure, unfiltered competition where only the best survive.</p>
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Same Episode Winner</h3>
+                <p class="feature-desc">No waiting weeks. Perform, get the verdict, and the winner is declared right there — in the same episode. Instant result.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎭</div>
+                <h3 class="feature-title">Any Talent Welcome</h3>
+                <p class="feature-desc">Singer, dancer, comedian, magician — or anything else you can do. Every talent gets a shot here. No discrimination.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📲</div>
+                <h3 class="feature-title">Online Reach</h3>
+                <p class="feature-desc">Your performance goes online. Thousands will watch. One strong act can go viral worldwide — and change your life forever.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">💰</div>
-                <h3 class="feature-title">Massive Prizes</h3>
-                <p class="feature-desc">Life-changing rewards for those who prove they have what it takes to be a winner.</p>
+                <h3 class="feature-title">Real Big Prize</h3>
+                <p class="feature-desc">Every episode winner takes home a big prize. Amount TBA — but it's a real reward for real talent. No fake promises.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">📺</div>
-                <h3 class="feature-title">National Exposure</h3>
-                <p class="feature-desc">Get featured on national television and build your personal brand to millions.</p>
+                <div class="feature-icon">🔥</div>
+                <h3 class="feature-title">Zero Fake Drama</h3>
+                <p class="feature-desc">No scripted fights, no producer manipulation, no PR games. Only your talent speaks. The audience decides — and no one can fool them.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">🏆</div>
-                <h3 class="feature-title">Elite Network</h3>
-                <p class="feature-desc">Connect with industry leaders, influencers, and fellow high-achievers.</p>
+                <h3 class="feature-title">Multiple Episodes = Multiple Chances</h3>
+                <p class="feature-desc">Didn't win in one episode? No problem — apply again for the next one. Every episode is a fresh start. Your next chance is always ready.</p>
             </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Fast-Paced</h3>
-                <p class="feature-desc">No time to waste. Quick eliminations keep the energy high and stakes higher.</p>
+        </div>
+    </section>
+
+    <!-- About The Show Section -->
+    <section class="about-section" id="about">
+        <div class="about-intro fade-in">
+            <div class="section-label">What Is LOZERS?</div>
+            <h2 class="section-title">Every Episode — New Contestants.<br>Every Episode — One Winner.</h2>
+            <p>
+                LOZERS is a raw, unscripted online talent show — <strong>inspired by India's Got Latent</strong> — with a simple, brutal format.
+                Every episode brings contestants who showcase their talent, and <strong>the winner is decided right in that same episode.</strong>
+                No grand finale drama. No waiting weeks. The best one wins — right there, right then.
+            </p>
+        </div>
+
+        <div class="concept-grid">
+            <div class="concept-card accent-orange fade-in">
+                <span class="concept-icon">🎭</span>
+                <h3>Any Talent Works</h3>
+                <p>Singing, dancing, standup, magic, rap, beatbox, mimicry, painting, martial arts — whatever you can do, this is your stage.</p>
             </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Skill Based</h3>
-                <p class="feature-desc">Your talent and determination matter more than your background or connections.</p>
+            <div class="concept-card accent-purple fade-in">
+                <span class="concept-icon">⚡</span>
+                <h3>Same Episode, Same Winner</h3>
+                <p>Contestants perform and the episode winner is decided right there. No rounds, no waiting, no complex brackets. Perform and win — or become a LOZER.</p>
             </div>
+            <div class="concept-card accent-green fade-in">
+                <span class="concept-icon">👑</span>
+                <h3>Har Episode Ka Champion</h3>
+                <p>Every episode has its own winner. One episode, one crown, one prize. Multiple episodes — multiple chances to become a LOZERS champion.</p>
+            </div>
+            <div class="concept-card accent-pink fade-in">
+                <span class="concept-icon">📲</span>
+                <h3>Online & Viral</h3>
+                <p>The show runs online. Your performance will be seen worldwide. Glory or defeat — both can go viral. You decide which one it'll be.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Episode Format Section -->
+    <section class="episode-section" id="episodes">
+        <div class="episode-header fade-in">
+            <div class="section-label">Show Format</div>
+            <h2>One Episode. One Winner. Simple.</h2>
+            <p>Every episode is self-contained — contestants come, perform, and the winner is decided the same day.</p>
+        </div>
+
+        <div class="episodes-list">
+            <div class="episode-item fade-in">
+                <div class="episode-num">STEP<br>01</div>
+                <div class="episode-info">
+                    <h4>Contestants Enter The Stage</h4>
+                    <p>Every episode brings fresh contestants — anyone, from any background. Share your name, your story, and step onto the stage.</p>
+                    <span class="episode-tag tag-intro">Entry</span>
+                </div>
+            </div>
+            <div class="episode-item fade-in">
+                <div class="episode-num">STEP<br>02</div>
+                <div class="episode-info">
+                    <h4>Talent Performance — No Filter</h4>
+                    <p>Every contestant performs their talent — fully, uncut, unscripted. Singing, dancing, comedy, magic, rap — anything goes. The audience watches in real time.</p>
+                    <span class="episode-tag tag-heat">Live Performance</span>
+                </div>
+            </div>
+            <div class="episode-item fade-in">
+                <div class="episode-num">STEP<br>03</div>
+                <div class="episode-info">
+                    <h4>Judging — Real, Raw, Honest</h4>
+                    <p>Instant feedback right after the performance. No sugarcoating — if your talent is strong, you get the crown. If not... you already know what they'll say. LOZER.</p>
+                    <span class="episode-tag tag-battle">Verdict</span>
+                </div>
+            </div>
+            <div class="episode-item fade-in">
+                <div class="episode-num">STEP<br>04</div>
+                <div class="episode-info">
+                    <h4>Episode Winner — Crowned On The Spot</h4>
+                    <p>The best performer of that episode is declared the winner — same night, same episode. Big prize awaits. The rest? LOZERS. Next episode brings new contestants and a fresh battle.</p>
+                    <span class="episode-tag tag-final">Winner 🏆</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 2.5rem;" class="fade-in">
+            <p style="font-size:0.9rem; color:var(--gray-light); margin-bottom:1rem;">Every episode has its own winner. <strong style="color:var(--white);">Multiple episodes = Multiple chances.</strong></p>
+            <a href="#apply" class="cta-btn" style="display:inline-flex;">
+                Apply For Next Episode
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Talent Types Section -->
+    <section class="talent-section" id="talent">
+        <div class="talent-header fade-in">
+            <div class="section-label">All Talents Welcome</div>
+            <h2>Got Any Talent? Apply Now.</h2>
+            <p>Seriously — any talent qualifies. If you can do it, we want to see it.</p>
+        </div>
+
+        <div class="talent-marquee-wrap fade-in">
+            <div class="talent-marquee-track">
+                <div class="talent-chip"><span>🎤</span> Singing</div>
+                <div class="talent-chip"><span>💃</span> Dance</div>
+                <div class="talent-chip"><span>😂</span> Stand-up Comedy</div>
+                <div class="talent-chip"><span>🎩</span> Magic Tricks</div>
+                <div class="talent-chip"><span>🎸</span> Instrument</div>
+                <div class="talent-chip"><span>🎨</span> Art & Painting</div>
+                <div class="talent-chip"><span>🥋</span> Martial Arts</div>
+                <div class="talent-chip"><span>🎭</span> Acting</div>
+                <div class="talent-chip"><span>🎤</span> Rap / Beatbox</div>
+                <div class="talent-chip"><span>🤸</span> Acrobatics</div>
+                <div class="talent-chip"><span>🎤</span> Singing</div>
+                <div class="talent-chip"><span>💃</span> Dance</div>
+                <div class="talent-chip"><span>😂</span> Stand-up Comedy</div>
+                <div class="talent-chip"><span>🎩</span> Magic Tricks</div>
+                <div class="talent-chip"><span>🎸</span> Instrument</div>
+                <div class="talent-chip"><span>🎨</span> Art & Painting</div>
+                <div class="talent-chip"><span>🥋</span> Martial Arts</div>
+                <div class="talent-chip"><span>🎭</span> Acting</div>
+                <div class="talent-chip"><span>🎤</span> Rap / Beatbox</div>
+                <div class="talent-chip"><span>🤸</span> Acrobatics</div>
+            </div>
+        </div>
+        <div class="talent-marquee-wrap fade-in">
+            <div class="talent-marquee-track reverse">
+                <div class="talent-chip"><span>🎭</span> Mimicry</div>
+                <div class="talent-chip"><span>🪄</span> Illusion</div>
+                <div class="talent-chip"><span>📖</span> Poetry / Shayari</div>
+                <div class="talent-chip"><span>🎬</span> Filmmaking</div>
+                <div class="talent-chip"><span>🧠</span> Mind Games</div>
+                <div class="talent-chip"><span>🎻</span> Classical Music</div>
+                <div class="talent-chip"><span>🕺</span> Street Dance</div>
+                <div class="talent-chip"><span>🎤</span> Spoken Word</div>
+                <div class="talent-chip"><span>🤹</span> Juggling</div>
+                <div class="talent-chip"><span>🎺</span> Any Skill</div>
+                <div class="talent-chip"><span>🎭</span> Mimicry</div>
+                <div class="talent-chip"><span>🪄</span> Illusion</div>
+                <div class="talent-chip"><span>📖</span> Poetry / Shayari</div>
+                <div class="talent-chip"><span>🎬</span> Filmmaking</div>
+                <div class="talent-chip"><span>🧠</span> Mind Games</div>
+                <div class="talent-chip"><span>🎻</span> Classical Music</div>
+                <div class="talent-chip"><span>🕺</span> Street Dance</div>
+                <div class="talent-chip"><span>🎤</span> Spoken Word</div>
+                <div class="talent-chip"><span>🤹</span> Juggling</div>
+                <div class="talent-chip"><span>🎺</span> Any Skill</div>
+            </div>
+        </div>
+        <div class="talent-cta fade-in">
+            <p>If you have any talent — you can be a contestant.</p>
+            <small>No prior experience needed. Just raw, real talent.</small>
+        </div>
+    </section>
+
+    <!-- Prize Section -->
+    <section class="prize-section" id="prize">
+        <div class="prize-box fade-in">
+            <div class="prize-glow-ring">🏆</div>
+            <div class="prize-tbd">BIG<br>PRIZE</div>
+            <div class="prize-label">Every Episode Winner Takes It Home — Stay Tuned</div>
+            <p class="prize-desc">
+                The prize has not been officially announced yet — but <strong>every episode winner takes home a big prize.</strong>
+                More contestants mean a bigger prize pool. <strong>Your entry helps grow the prize.</strong>
+                Wait for the announcement — or apply now and be ready.
+            </p>
+            <div class="prize-perks">
+                <div class="prize-perk">🏆 Episode Winner Crown</div>
+                <div class="prize-perk">🎁 Big Prize (TBA)</div>
+                <div class="prize-perk">📲 Social Media Feature</div>
+                <div class="prize-perk">🎬 Episode Highlight Clip</div>
+                <div class="prize-perk">🔥 Bragging Rights Forever</div>
+                <div class="prize-perk">⚡ Decided Same Episode</div>
+            </div>
+            <a href="#apply" class="cta-btn" style="display: inline-flex; margin: 0 auto;">
+                Apply Now — ₹69
+                <span>→</span>
+            </a>
         </div>
     </section>
 
@@ -2040,66 +2904,59 @@
         <div class="stat-card fade-in">
             <div class="stat-number" id="statApplicants">0</div>
             <div class="stat-label">Applications</div>
-            <div class="stat-desc">From across the country</div>
+            <div class="stat-desc">And growing</div>
         </div>
         <div class="stat-card fade-in">
-            <div class="stat-number">24</div>
-            <div class="stat-label">Contestants</div>
-            <div class="stat-desc">Selected from thousands</div>
+            <div class="stat-number">1</div>
+            <div class="stat-label">Winner Per Episode</div>
+            <div class="stat-desc">Each episode's own champion</div>
         </div>
         <div class="stat-card fade-in">
-            <div class="stat-number">01</div>
-            <div class="stat-label">Winner</div>
-            <div class="stat-desc">Only one will be crowned</div>
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Talent Types</div>
+            <div class="stat-desc">Anything goes</div>
         </div>
         <div class="stat-card fade-in">
-            <div class="stat-number">69₹</div>
+            <div class="stat-number">₹69</div>
             <div class="stat-label">Entry Fee</div>
-            <div class="stat-desc">Serious contenders only</div>
+            <div class="stat-desc">Serious contestants only</div>
         </div>
     </section>
 
     <!-- Timeline Section -->
     <section class="timeline-section" id="timeline">
         <div class="section-header fade-in">
-            <div class="section-label">The Journey</div>
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Your path from application to victory</p>
+            <div class="section-label">Your Journey</div>
+            <h2 class="section-title">From Apply to Winner</h2>
+            <p class="section-subtitle">Just 4 steps — apply and get on stage</p>
         </div>
         <div class="timeline">
             <div class="timeline-item fade-in">
                 <div class="timeline-dot">01</div>
                 <div class="timeline-content">
-                    <h3 class="timeline-title">Apply Online</h3>
-                    <p class="timeline-desc">Fill out the application form and pay the ₹69 entry fee to secure your spot in the selection process.</p>
+                    <h3 class="timeline-title">Apply Online — ₹69</h3>
+                    <p class="timeline-desc">Fill out the form and pay the ₹69 entry fee. That's it. No audition, no waiting for callbacks — apply and lock your spot.</p>
                 </div>
             </div>
             <div class="timeline-item fade-in">
                 <div class="timeline-dot">02</div>
                 <div class="timeline-content">
-                    <h3 class="timeline-title">Video Screening</h3>
-                    <p class="timeline-desc">Submit your talent video showcasing why you're not a loser. Impress our judges to move forward.</p>
+                    <h3 class="timeline-title">Submit Your Talent Video</h3>
+                    <p class="timeline-desc">Upload your best talent video — show us what you've got. This is your first impression. Make it count.</p>
                 </div>
             </div>
             <div class="timeline-item fade-in">
                 <div class="timeline-dot">03</div>
                 <div class="timeline-content">
-                    <h3 class="timeline-title">Live Auditions</h3>
-                    <p class="timeline-desc">Selected candidates will be invited for live auditions in major cities across India.</p>
+                    <h3 class="timeline-title">Get Called for an Episode</h3>
+                    <p class="timeline-desc">Our team will review your application. If you're a fit, you'll be selected for an episode. You'll get your date and your slot — just stay ready.</p>
                 </div>
             </div>
             <div class="timeline-item fade-in">
                 <div class="timeline-dot">04</div>
                 <div class="timeline-content">
-                    <h3 class="timeline-title">Final Selection</h3>
-                    <p class="timeline-desc">24 contestants will be chosen to compete in Season 01 of LOZERS.</p>
-                </div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot">05</div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">The Show</h3>
-                    <p class="timeline-desc">Compete in intense challenges, face eliminations, and prove you're the ultimate winner.</p>
+                    <h3 class="timeline-title">Come on Stage, Perform, Win</h3>
+                    <p class="timeline-desc">Show up for the episode, showcase your talent, hear the judges' verdict — and if you're truly the best, the winner's crown is yours. Big prize. The rest? LOZERS.</p>
                 </div>
             </div>
         </div>
@@ -2131,7 +2988,10 @@
                         <div class="indicator-dot"></div>
                     </div>
                 </div>
-                <h3 class="form-title">Basic Information</h3>
+                <h3 class="form-title">Step 1: Basic Information</h3>
+                <p style="font-size: 0.9rem; color: var(--gray-light); margin-bottom: 1.5rem;">
+                    Let's start with your contact details. Make sure everything is accurate!
+                </p>
                 <div class="form-group">
                     <label class="form-label">Full Name <span class="required">*</span></label>
                     <input type="text" class="form-input" id="fullName" placeholder="Enter your full name" required>
@@ -2150,12 +3010,13 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Age <span class="required">*</span></label>
-                    <input type="number" class="form-input" id="age" placeholder="18+" min="18" max="50" required>
+                    <input type="number" class="form-input" id="age" placeholder="18+" min="18" max="60" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Full Address <span class="required">*</span></label>
-                    <textarea class="form-input" id="address" placeholder="House No., Street, City, State, PIN Code" rows="3" required></textarea>
+                    <label class="form-label">City / State <span class="required">*</span></label>
+                    <input type="text" class="form-input" id="address1" placeholder="e.g. Mumbai, Maharashtra" required>
                 </div>
+
                 <div class="card-actions">
                     <div></div>
                     <button class="btn-card btn-next-card" onclick="nextCard()">Continue →</button>
@@ -2173,23 +3034,26 @@
                         <div class="indicator-dot"></div>
                     </div>
                 </div>
-                <h3 class="form-title">Your Profile</h3>
+                <h3 class="form-title">Step 2: Tell Us About Your Talent</h3>
+                <p style="font-size: 0.9rem; color: var(--gray-light); margin-bottom: 1.5rem;">
+                    This is your chance to stand out! Share your story and what makes you special.
+                </p>
                 <div class="form-group">
                     <label class="form-label">Social Media Handle <span class="required">*</span></label>
-                    <input type="text" class="form-input" id="socialMedia" placeholder="@YourHandle (Instagram/Twitter/TikTok)" required>
+                    <input type="text" class="form-input" id="socialMedia"
+                        placeholder="@YourHandle (Instagram/Twitter/TikTok)" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Why aren't you a lozer? <span class="required">*</span></label>
-                    <textarea class="form-input" id="whyNotLoser" placeholder="Be specific. What makes you a winner?" rows="4" required></textarea>
+                    <label class="form-label">Tell Us Your Story <span class="required">*</span></label>
+                    <textarea class="form-input" id="whyNotLoser"
+                        placeholder="Share your journey, struggles, and what drives your passion for your talent..."
+                        rows="4" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">What makes you unique? <span class="required">*</span></label>
-                    <textarea class="form-input" id="whatMakesUnique" placeholder="What sets you apart from everyone else?" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Upload a video showcasing your talent <span class="required">*</span></label>
-                    <input type="file" class="form-input" id="talentVideo" accept="video/*" required style="padding: 0.5rem;">
-                    <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.5rem;">Max 50MB. Show us what you've got!</div>
+                    <label class="form-label">What Makes Your Talent Special? <span class="required">*</span></label>
+                    <textarea class="form-input" id="whatMakesUnique"
+                        placeholder="Describe your talent and what makes it unique. What can you do that others can't?"
+                        rows="4" required></textarea>
                 </div>
                 <div class="card-actions">
                     <button class="btn-card btn-back-card" onclick="prevCard()">← Back</button>
@@ -2197,7 +3061,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: More About You -->
+            <!-- Card 3: Verification & Uploads -->
             <div class="form-card behind-2" data-card="3">
                 <div class="card-header">
                     <span class="card-step">STEP 03</span>
@@ -2208,26 +3072,40 @@
                         <div class="indicator-dot"></div>
                     </div>
                 </div>
-                <h3 class="form-title">More About You</h3>
-                <div class="form-group">
-                    <label class="form-label">Your biggest achievement <span class="required">*</span></label>
-                    <textarea class="form-input" id="biggestFlex" placeholder="What are you most proud of? Your greatest accomplishment..." rows="4" required></textarea>
+                <h3 class="form-title">Step 3: Upload Your Identity & Talent Video</h3>
+                <p style="font-size: 0.9rem; color: var(--gray-light); line-height: 1.6; margin-bottom: 1.5rem;">
+                    To complete your application, please upload your <strong>ID Proof (Photo)</strong> and
+                    <strong>Talent Video</strong> showcasing your skills via Google Form below.
+                </p>
+                <div
+                    style="background: rgba(255,255,255,0.03); border: 2px dashed rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; text-align: center; margin-bottom: 1.5rem;">
+                    <button type="button" onclick="openGoogleFormSmart()" class="btn-card"
+                        style="display: inline-block; background: var(--accent); border: none; padding: 12px 24px; cursor: pointer;">
+                        🚀 OPEN UPLOAD FORM
+                    </button>
+                    <p style="font-size: 0.75rem; color: var(--gray); margin-top: 1.2rem;">
+                        Form will open in a new window. After submitting, just close the form window.
+                    </p>
+                    <p id="formStatusMessage"
+                        style="font-size: 0.8rem; color: var(--success); margin-top: 1rem; display: none;">
+                        ✅ Form submitted! You can proceed to payment.
+                    </p>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Most challenging moment you've overcome <span class="required">*</span></label>
-                    <textarea class="form-input" id="craziestMoment" placeholder="Describe a difficult situation you conquered..." rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Body count (Optional)</label>
-                    <input type="number" class="form-input" id="bodyCount" placeholder="If you wish to share..." min="0">
+                    <label class="form-label" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                        <input type="checkbox" id="filesUploaded" required
+                            style="width: 20px; height: 20px; accent-color: var(--accent);">
+                        <span style="font-size: 0.85rem; font-weight: 500;">I have uploaded my files to the Google
+                            Form.</span>
+                    </label>
                 </div>
                 <div class="card-actions">
                     <button class="btn-card btn-back-card" onclick="prevCard()">← Back</button>
-                    <button class="btn-card btn-next-card" onclick="nextCard()">Continue →</button>
+                    <button class="btn-card btn-next-card" onclick="nextCard()">Proceed to Payment →</button>
                 </div>
             </div>
 
-            <!-- Card 4: Payment & Final Step -->
+            <!-- Card 4: Payment & Final Submit -->
             <div class="form-card behind-3" data-card="4">
                 <div class="card-header">
                     <span class="card-step">STEP 04</span>
@@ -2239,39 +3117,32 @@
                     </div>
                 </div>
                 <h3 class="form-title">Secure Your Spot</h3>
-
                 <div class="payment-info">
                     <div class="payment-amount">₹69</div>
                     <div class="payment-text">Entry Fee - Non Refundable</div>
                 </div>
-
                 <div class="form-group">
                     <label class="form-label">Why should we pick YOU? <span class="required">*</span></label>
-                    <textarea class="form-input" id="whyPickYou" placeholder="Make your final pitch. Convince us why you deserve this spot..." rows="5" required></textarea>
+                    <textarea class="form-input" id="whyPickYou" placeholder="Make your final pitch..." rows="3"
+                        required></textarea>
                 </div>
-
-                <div class="form-group" style="margin-top: 1.5rem;">
-                    <label class="form-label" style="display: block; margin-bottom: 1rem; font-size: 0.8rem; letter-spacing: 0.05em;">
-                        TERMS & CONDITIONS
-                    </label>
-                    <div style="max-height: 180px; overflow-y: auto; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; line-height: 1.7; color: var(--gray-light); margin-bottom: 1rem;">
-                        <p style="margin-bottom: 0.75rem;"><strong>1. Entry Fee:</strong> The ₹69 entry fee is non-refundable under any circumstances.</p>
-                        <p style="margin-bottom: 0.75rem;"><strong>2. Selection Process:</strong> All applications will be reviewed by our selection committee. Meeting the eligibility criteria does not guarantee selection.</p>
-                        <p style="margin-bottom: 0.75rem;"><strong>3. Content Usage:</strong> By submitting this application, you grant LOZERS the right to use your submitted content for promotional purposes.</p>
-                        <p style="margin-bottom: 0.75rem;"><strong>4. Age Requirement:</strong> Applicants must be 18 years or older at the time of application.</p>
-                        <p style="margin-bottom: 0.75rem;"><strong>5. Accuracy:</strong> All information provided must be truthful and accurate. False information will lead to immediate disqualification.</p>
-                        <p style="margin-bottom: 0;"><strong>6. Final Decision:</strong> All decisions made by LOZERS regarding contestant selection are final and binding.</p>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <div
+                        style="max-height: 120px; overflow-y: auto; padding: 0.8rem; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); font-size: 0.7rem; color: var(--gray-light);">
+                        <p><strong>1. Entry Fee:</strong> The ₹69 entry fee is non-refundable.</p>
+                        <p><strong>2. Selection:</strong> Decisions are final and binding.</p>
+                        <p><strong>3. Accuracy:</strong> False info leads to disqualification.</p>
                     </div>
-                    <label class="form-label" style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 0.85rem; font-weight: 500;">
-                        <input type="checkbox" id="agreeTerms" required style="width: 20px; height: 20px; accent-color: var(--accent); margin-top: 2px; flex-shrink: 0;">
-                        <span>I have read and agree to the Terms & Conditions, and I agree to pay ₹69 entry fee which is non-refundable <span class="required">*</span></span>
+                    <label class="form-label"
+                        style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.8rem; margin-top: 1rem;">
+                        <input type="checkbox" id="agreeTerms" required
+                            style="width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0;">
+                        <span>I agree to the Terms & non-refundable fee. <span class="required">*</span></span>
                     </label>
                 </div>
                 <div class="card-actions">
                     <button class="btn-card btn-back-card" onclick="prevCard()">← Back</button>
-                    <button class="btn-card btn-pay" onclick="initiatePayment()">
-                        Pay ₹69 & Submit →
-                    </button>
+                    <button class="btn-card btn-pay" onclick="initiatePayment()">Pay ₹69 & Submit →</button>
                 </div>
             </div>
 
@@ -2282,19 +3153,25 @@
                         <path d="M20 6L9 17l-5-5" />
                     </svg>
                 </div>
-                <h3 class="success-title">Payment Successful!</h3>
+                <h3 class="success-title">🎉 Payment Successful!</h3>
                 <p class="success-text">
-                    Your application has been received. We will review it and reach out if you make the cut.
+                    <strong>Your application has been received!</strong>
                     <br><br>
-                    <strong>Amount Paid: ₹69</strong>
+                    <strong style="color: var(--success); font-size: 1.2rem;">Amount Paid: ₹69</strong>
                     <br><br>
+                    Payment ID: <span id="paymentIdDisplay"
+                        style="color: var(--gray-light); font-size: 0.9rem;">Processing...</span>
+                    <br><br>
+                    We will review your application and reach out if you make the cut.
+                    <br>
                     Until then — stay ready, stay hungry.
                 </p>
                 <div class="success-actions">
                     <button class="btn-card btn-next-card" onclick="window.location.href='#hero'">
                         ← Back to Home
                     </button>
-                    <button class="btn-card" onclick="window.location.reload()" style="background: rgba(255,255,255,0.1);">
+                    <button class="btn-card" onclick="window.location.reload()"
+                        style="background: rgba(255,255,255,0.1);">
                         Submit Another
                     </button>
                 </div>
@@ -2314,11 +3191,12 @@
             <div class="contact-card fade-in">
                 <div class="contact-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                     </svg>
                 </div>
                 <h3 class="contact-label">Phone</h3>
-                <a href="tel:+919876543210" class="contact-link">+91 98765 43210</a>
+                <a href="tel:+91 70188 04957" class="contact-link">+91 70188 04957</a>
             </div>
 
             <div class="contact-card fade-in">
@@ -2329,42 +3207,57 @@
                     </svg>
                 </div>
                 <h3 class="contact-label">Email</h3>
-                <a href="mailto:contact@lozers.show" class="contact-link">contact@lozers.show</a>
+                <a href="mailto:LosersGetYourAssKicked@gmail.com" class="contact-link">LosersGetYourAssKicked@gmail.com</a>
             </div>
 
             <div class="contact-card fade-in">
                 <div class="contact-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent)">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    <svg width="24" height="24" fill="var(--accent)" viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                     </svg>
                 </div>
                 <h3 class="contact-label">WhatsApp</h3>
-                <a href="https://wa.me/919876543210" target="_blank" class="contact-link">+91 98765 43210</a>
+                <a href="https://wa.me/917876860028" target="_blank" class="contact-link">+91 78768 60028</a>
             </div>
+        </div>
+
+        <!-- QR Code -->
+        <div class="qr-section fade-in">
+            <h3 class="qr-title">Scan to Apply</h3>
+            <p class="qr-desc">Scan with your phone and visit the site directly</p>
+            <div class="qr-box">
+                <div id="qrcode"></div>
+            </div>
+            <p class="qr-url">hanish-bot.github.io/n8n</p>
         </div>
 
         <!-- Social Media -->
         <div class="social-section fade-in">
             <h3 class="social-title">Follow Us</h3>
             <div class="social-links">
-                <a href="https://instagram.com/lozers_official" target="_blank" class="social-link">
+                <a href="https://www.instagram.com/himhits_?igsh=cWltZGV0NXY5N2N3" target="_blank" class="social-link">
                     <svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>
                 </a>
-                <a href="https://twitter.com/lozers_show" target="_blank" class="social-link">
+                <a href="https://x.com/himHits_TUS?t=k_RHpH9nDWIRMKmIY1DKUw&s=08" target="_blank" class="social-link">
                     <svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        <path
+                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                     </svg>
                 </a>
-                <a href="https://facebook.com/lozers.show" target="_blank" class="social-link">
+                <a href="https://www.facebook.com/share/1DGaRHLngw/" target="_blank" class="social-link">
                     <svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                     </svg>
                 </a>
-                <a href="https://youtube.com/@lozers_show" target="_blank" class="social-link">
+                <a href="https://youtube.com/@himhits?si=Gao2wjoa0-DhfSo5" target="_blank" class="social-link">
                     <svg width="20" height="20" fill="var(--accent)" viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                     </svg>
                 </a>
             </div>
@@ -2379,31 +3272,149 @@
             <a href="#" class="footer-link">Privacy</a>
             <a href="#contact" class="footer-link">Contact</a>
         </div>
-        <div class="footer-copy">© 2026 LOZERS. ALL RIGHTS RESERVED.</div>
+        <div class="footer-copy">© <span id="footerYear"></span> LOZERS. ALL RIGHTS RESERVED.</div>
     </footer>
 
     <script>
+        // Footer year
+        var fy = document.getElementById('footerYear');
+        if (fy) fy.textContent = new Date().getFullYear();
+
+        // QR Code Generation
+        document.addEventListener('DOMContentLoaded', function() {
+            var qrEl = document.getElementById('qrcode');
+            if (qrEl && typeof QRCode !== 'undefined') {
+                new QRCode(qrEl, {
+                    text: 'https://hanish-bot.github.io/n8n/',
+                    width: 180,
+                    height: 180,
+                    colorDark: '#ff4d00',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        });
+
         // Configuration
         const RAZORPAY_KEY_ID = 'rzp_test_YOUR_KEY_HERE';
-        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwW7Q_7ns3-lHKBOO_lfDjdWQJnwt7epHEsfeLnpSDLL7c0m_sSzjIa-v2fsLGWwYkH/exec';
+        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScojZoa7_aQsDKQN02Ei-uL8PeHLVdJ4BSmZnnDiuJSnmYT_g/viewform';
 
-        // Page Loader
-        window.addEventListener('load', function () {
-            setTimeout(() => {
-                const loader = document.getElementById('pageLoader');
-                if (loader) {
-                    loader.classList.add('hidden');
-                    setTimeout(() => {
-                        loader.style.display = 'none';
-                    }, 600);
+        // Smart Google Form Opener with Auto-Detection
+        function openGoogleFormSmart() {
+            // Open form in new window
+            const formWindow = window.open(
+                GOOGLE_FORM_URL,
+                'LOZERS_Upload_Form',
+                'width=800,height=900,scrollbars=yes,resizable=yes'
+            );
+
+            if (!formWindow) {
+                alert('❌ Please allow popups for this site to open the upload form.');
+                return;
+            }
+
+            // Show notification
+            showNotification('📤 Google Form opened! Upload your files and submit.', 'info');
+
+            // Monitor form window
+            const checkInterval = setInterval(() => {
+                if (formWindow.closed) {
+                    clearInterval(checkInterval);
+
+                    // Auto-check the confirmation checkbox
+                    const checkbox = document.getElementById('filesUploaded');
+                    if (checkbox && !checkbox.checked) {
+                        checkbox.checked = true;
+
+                        // Show success message
+                        const statusMsg = document.getElementById('formStatusMessage');
+                        if (statusMsg) {
+                            statusMsg.style.display = 'block';
+                        }
+
+                        // Show notification
+                        showNotification('✅ Form submitted successfully! You can now proceed to payment.', 'success');
+
+                        // Scroll to next button
+                        setTimeout(() => {
+                            const nextBtn = document.querySelector('[data-card="3"] .btn-next-card');
+                            if (nextBtn) {
+                                nextBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }, 500);
+                    }
                 }
+            }, 500); // Check every 500ms
+        }
 
-                setTimeout(() => {
-                    animateValue('applicantCount', 0, 50000, 2000);
-                    animateValue('statApplicants', 0, 50000, 2000);
-                }, 500);
-            }, 2000);
-        });
+        // Notification System
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existing = document.querySelector('.custom-notification');
+            if (existing) existing.remove();
+
+            const notification = document.createElement('div');
+            notification.className = 'custom-notification';
+            notification.textContent = message;
+
+            const colors = {
+                success: 'linear-gradient(135deg, #00ff88, #00cc6a)',
+                error: 'linear-gradient(135deg, #ff6b6b, #ee5a52)',
+                info: 'linear-gradient(135deg, #3b82f6, #2563eb)',
+                warning: 'linear-gradient(135deg, #ffd700, #ffc107)'
+            };
+
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${colors[type] || colors.info};
+                color: ${type === 'warning' ? '#000' : '#fff'};
+                padding: 15px 25px;
+                border-radius: 12px;
+                font-weight: 600;
+                font-size: 0.9rem;
+                z-index: 100000;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                max-width: 350px;
+                word-wrap: break-word;
+            `;
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.4s ease';
+                setTimeout(() => notification.remove(), 400);
+            }, 4000);
+        }
+
+        // Add animation styles
+        const notificationStyles = document.createElement('style');
+        notificationStyles.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(notificationStyles);
 
         // Navigation
         let currentCard = 1;
@@ -2456,6 +3467,7 @@
 
         setInterval(nextSlide, 4000);
 
+
         // Form Navigation
         function updateCards() {
             const cards = document.querySelectorAll('.form-card[data-card]');
@@ -2481,24 +3493,75 @@
             });
         }
 
-        function validateCurrentCard() {
-            const currentCardEl = document.querySelector(`.form-card[data-card="${currentCard}"]`);
-            const inputs = currentCardEl.querySelectorAll('input[required], textarea[required]');
+        function showError(input, msg) {
+            input.style.borderColor = '#ff4d00';
+            input.style.boxShadow = '0 0 0 2px rgba(255,77,0,0.25)';
+            // remove old error if any
+            var old = input.parentNode.querySelector('.input-error-msg');
+            if (old) old.remove();
+            var err = document.createElement('div');
+            err.className = 'input-error-msg';
+            err.style.cssText = 'color:#ff4d00;font-size:0.72rem;margin-top:4px;letter-spacing:0.03em;';
+            err.textContent = msg;
+            input.parentNode.appendChild(err);
+            input.focus();
+            setTimeout(function () {
+                input.style.borderColor = '';
+                input.style.boxShadow = '';
+                if (err.parentNode) err.remove();
+            }, 3000);
+        }
 
-            for (let input of inputs) {
+        function validateCurrentCard() {
+            var currentCardEl = document.querySelector('.form-card[data-card="' + currentCard + '"]');
+            var inputs = currentCardEl.querySelectorAll('input[required], textarea[required]');
+            var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phoneRe = /^[0-9+\s\-]{8,15}$/;
+
+            for (var i = 0; i < inputs.length; i++) {
+                var input = inputs[i];
+
+                // Checkbox
                 if (input.type === 'checkbox') {
                     if (!input.checked) {
-                        input.focus();
+                        showError(input, 'This box must be checked to proceed');
                         return false;
                     }
                     continue;
                 }
-                if (!input.value.trim()) {
-                    input.focus();
-                    input.style.borderColor = '#ff4d00';
-                    setTimeout(() => {
-                        input.style.borderColor = '';
-                    }, 2000);
+
+                var val = input.value.trim();
+
+                // Empty check
+                if (!val) {
+                    showError(input, 'This field is required');
+                    return false;
+                }
+
+                // Email
+                if (input.type === 'email' && !emailRe.test(val)) {
+                    showError(input, 'Please enter a valid email address');
+                    return false;
+                }
+
+                // Phone
+                if (input.type === 'tel' && !phoneRe.test(val)) {
+                    showError(input, 'Please enter a valid phone number');
+                    return false;
+                }
+
+                // Age
+                if (input.id === 'age') {
+                    var age = parseInt(val);
+                    if (isNaN(age) || age < 18 || age > 60) {
+                        showError(input, 'Age must be between 18 and 60');
+                        return false;
+                    }
+                }
+
+                // Min length for textareas
+                if (input.tagName === 'TEXTAREA' && val.length < 20) {
+                    showError(input, 'Please write at least 20 characters');
                     return false;
                 }
             }
@@ -2510,6 +3573,8 @@
             if (currentCard < totalCards) {
                 currentCard++;
                 updateCards();
+                // Smooth scroll to top of card container
+                document.getElementById('cardsContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
@@ -2521,7 +3586,7 @@
         }
 
         // Payment
-        function initiatePayment() {
+        async function initiatePayment() {
             if (!validateCurrentCard()) return;
 
             const agreeCheckbox = document.getElementById('agreeTerms');
@@ -2538,27 +3603,25 @@
                 phone: document.getElementById('phone').value,
                 whatsapp: document.getElementById('whatsapp').value,
                 age: document.getElementById('age').value,
-                address: document.getElementById('address').value,
+                cityState: document.getElementById('address1').value,
                 socialMedia: document.getElementById('socialMedia').value,
                 whyNotLoser: document.getElementById('whyNotLoser').value,
                 whatMakesUnique: document.getElementById('whatMakesUnique').value,
-                talentVideo: document.getElementById('talentVideo').files[0]?.name || 'Not uploaded',
-                biggestFlex: document.getElementById('biggestFlex').value,
-                craziestMoment: document.getElementById('craziestMoment').value,
-                bodyCount: document.getElementById('bodyCount').value || 'Not provided',
-                whyPickYou: document.getElementById('whyPickYou').value,
+                videoStatus: "Uploaded via Google Form",
+                pitch: document.getElementById('whyPickYou').value,
                 amount: 69,
                 timestamp: new Date().toISOString()
             };
 
             // Demo mode
             if (RAZORPAY_KEY_ID === 'rzp_test_YOUR_KEY_HERE') {
-                setTimeout(() => {
-                    document.getElementById('formLoading').classList.remove('show');
+                setTimeout(async () => {
                     formData.paymentId = 'demo_' + Date.now();
                     formData.paymentStatus = 'demo_success';
-                    submitToGoogleSheets(formData);
-                    showSuccess();
+                    // Submit form data
+                    await submitToGoogleSheets(formData);
+                    document.getElementById('formLoading').classList.remove('show');
+                    showSuccess(formData.paymentId);
                 }, 2000);
                 return;
             }
@@ -2570,12 +3633,13 @@
                 currency: 'INR',
                 name: 'LOZERS',
                 description: 'Season 01 Application Fee',
-                handler: function (response) {
+                handler: async function (response) {
                     formData.paymentId = response.razorpay_payment_id;
                     formData.paymentStatus = 'success';
-                    submitToGoogleSheets(formData);
+                    // Submit form data
+                    await submitToGoogleSheets(formData);
                     document.getElementById('formLoading').classList.remove('show');
-                    showSuccess();
+                    showSuccess(formData.paymentId);
                 },
                 prefill: {
                     name: formData.fullName,
@@ -2590,28 +3654,64 @@
                 }
             };
 
-            const rzp = new Razorpay(options);
-            rzp.open();
-        }
-
-        function showSuccess() {
-            document.querySelectorAll('.form-card[data-card]').forEach(card => {
-                card.style.display = 'none';
-            });
-            document.getElementById('successCard').classList.add('show');
+            try {
+                const rzp = new Razorpay(options);
+                rzp.open();
+            } catch (e) {
+                document.getElementById('formLoading').classList.remove('show');
+                alert('Payment gateway failed to load. Please refresh and try again.');
+                console.error('Razorpay init error:', e);
+            }
         }
 
         async function submitToGoogleSheets(data) {
             try {
+                // Primary: POST with no-cors
                 await fetch(GOOGLE_SHEETS_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(data)
                 });
+                console.log('Form data sent via POST (no-cors)');
             } catch (error) {
-                localStorage.setItem('pendingApplication', JSON.stringify(data));
+                console.error('POST failed:', error);
             }
+            try {
+                // Fallback: GET request with data as query param
+                const encoded = encodeURIComponent(JSON.stringify(data));
+                await fetch(GOOGLE_SHEETS_URL + '?data=' + encoded, {
+                    method: 'GET',
+                    mode: 'no-cors'
+                });
+                console.log('Form data sent via GET fallback');
+            } catch (error) {
+                console.error('GET fallback failed:', error);
+            }
+        }
+
+        function showSuccess(paymentId = null) {
+            document.getElementById('formLoading').classList.remove('show');
+
+            // Hide all form cards
+            document.querySelectorAll('.form-card[data-card]').forEach(card => {
+                card.style.display = 'none';
+            });
+
+            // Show success card
+            const successCard = document.getElementById('successCard');
+            successCard.classList.add('show');
+
+            // Display payment ID if provided
+            if (paymentId) {
+                const displayElement = document.getElementById('paymentIdDisplay');
+                if (displayElement) {
+                    displayElement.textContent = paymentId;
+                }
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Utilities
@@ -2637,12 +3737,14 @@
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            const prog = document.getElementById('scrollProgress');
+            if (prog) prog.style.width = scrolled + '%';
         });
 
         // Particles
         function createParticles() {
             const container = document.getElementById('particles');
+            if (!container) return;
             for (let i = 0; i < 25; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -2656,21 +3758,49 @@
 
         // Fade In Animation on Scroll
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px 0px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Fallback: show all fade-in elements after 3s if observer didn't trigger
+        setTimeout(function() {
+            document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+        }, 3000);
+
+        // Page Loader
+        var loaderHidden = false;
+        function hideLoader() {
+            if (loaderHidden) return;
+            loaderHidden = true;
+            var loader = document.getElementById('pageLoader');
+            if (loader) {
+                loader.style.transition = 'opacity 0.5s ease';
+                loader.style.opacity = '0';
+                loader.style.pointerEvents = 'none';
+                setTimeout(function () { loader.style.display = 'none'; }, 500);
+            }
+            try { animateValue('applicantCount', 0, 500, 200); } catch (e) { }
+            try { animateValue('statApplicants', 0, 500, 200); } catch (e) { }
+        }
+
+        // Hide on DOMContentLoaded (fastest)
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(hideLoader, 2100); });
+        // Hide on full load
+        window.addEventListener('load', function () { setTimeout(hideLoader, 300); });
+        // Nuclear fallback — always fires
+        setTimeout(hideLoader, 2500);
+
     </script>
 </body>
 
